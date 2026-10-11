@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى زوجتي الغالية ❤️</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo & Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #050505;
+            color: #fce7f3;
+            overflow-x: hidden;
+        }
+
+        /* Floating Hearts Animation */
+        @keyframes floatUp {
+            0% { transform: translateY(105vh) scale(0.6) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.7; }
+            80% { opacity: 0.7; }
+            100% { transform: translateY(-10vh) scale(1.2) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes floatDown {
+            0% { transform: translateY(-10vh) scale(0.6) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.7; }
+            80% { opacity: 0.7; }
+            100% { transform: translateY(105vh) scale(1.2) rotate(-360deg); opacity: 0; }
+        }
+
+        .heart-up {
+            position: absolute;
+            bottom: -20px;
+            animation: floatUp 7s infinite linear;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart-down {
+            position: absolute;
+            top: -20px;
+            animation: floatDown 7s infinite linear;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Glassmorphism Panel */
+        .glass-panel {
+            background: rgba(20, 10, 15, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(244, 63, 94, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(244, 63, 94, 0.15);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f43f5e;
+            border-radius: 3px;
+        }
+
+        .page-transition {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-black text-rose-100 flex flex-col items-center justify-center relative selection:bg-rose-500 selection:text-white">
+
+    <!-- Background Floating Hearts Containers -->
+    <div id="hearts-up-container" class="absolute inset-0 overflow-hidden pointer-events-none"></div>
+    <div id="hearts-down-container" class="absolute inset-0 overflow-hidden pointer-events-none"></div>
+
+    <!-- Hidden Audio Element for Background Music -->
+    <!-- Using a gentle, royalty-free romantic instrumental stream -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf756.mp3?filename=romantic-guitars-112133.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Control Floating Widget -->
+    <div id="music-widget" class="fixed top-4 left-4 z-50 hidden">
+        <button onclick="toggleMusic()" class="glass-panel px-4 py-2 rounded-full text-xs flex items-center gap-2 hover:bg-rose-500/20 transition-all border border-rose-500/30 shadow-lg">
+            <span id="music-icon" class="text-rose-400 text-sm animate-pulse">🎵</span>
+            <span id="music-text" class="font-medium text-rose-200">الموسيقى تعمل</span>
+        </button>
+    </div>
+
+    <!-- Main Container Wrapper -->
+    <div class="relative z-10 w-full max-w-xl mx-auto p-4 sm:p-6 min-h-screen flex items-center justify-center">
+
+        <!-- ================= PAGE 1: LOGIN / WELCOME SCREEN ================= -->
+        <div id="page-1" class="w-full glass-panel rounded-3xl p-6 sm:p-10 text-center page-transition">
+            <!-- Text Above Icon -->
+            <h1 class="text-4xl sm:text-5xl font-black bg-gradient-to-r from-rose-400 via-pink-400 to-red-500 bg-clip-text text-transparent mb-6 tracking-wide drop-shadow-md">
+                أحبك
+            </h1>
+
+            <!-- Center Icon: Couple Hugging/Kissing SVG -->
+            <div class="flex justify-center mb-8">
+                <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-to-tr from-rose-900/40 to-pink-900/40 border border-rose-500/30 flex items-center justify-center shadow-inner relative group">
+                    <div class="absolute inset-0 rounded-full bg-rose-500/10 blur-xl group-hover:bg-rose-500/20 transition-all"></div>
+                    <svg class="w-20 h-20 sm:w-24 sm:h-24 text-rose-400 drop-shadow-[0_0_15px_rgba(244,63,94,0.6)] z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+                        <path d="M15 11c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z" fill="currentColor" opacity="0.3"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Password Form -->
+            <div class="space-y-4 max-w-sm mx-auto">
+                <p class="text-rose-200/80 text-sm font-medium">أدخل الرقم السري للمتابعة:</p>
+                <div class="relative">
+                    <input type="password" id="password-input" placeholder="اكتب الرقم السري هنا..." class="w-full px-5 py-4 rounded-2xl bg-black/40 border border-rose-500/30 text-center text-rose-100 placeholder-rose-400/40 focus:outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-500/30 transition-all tracking-widest text-lg" onkeypress="handleKeyPress(event)">
+                </div>
+                <button onclick="checkPassword()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold shadow-lg shadow-rose-600/40 transition-all transform hover:-scale-[1.01] active:scale-95 text-lg">
+                    دخول إلى عالمنا ❤️
+                </button>
+                <p id="error-msg" class="text-rose-400 text-xs font-semibold h-4 opacity-0 transition-opacity">الرقم السري غير صحيح    </p>
+            </div>
+        </div>
+
+
+        <!-- ================= PAGE 2: MESSAGE PAGE ================= -->
+        <div id="page-2" class="w-full glass-panel rounded-3xl p-6 sm:p-10 hidden page-transition relative">
+            <!-- Step Indicator -->
+            <span class="absolute top-4 left-6 text-xs text-rose-400/60 font-medium">١ من ٥</span>
+
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-center bg-gradient-to-r from-rose-300 via-pink-400 to-rose-200 bg-clip-text text-transparent mb-6"> 
+                  إلى زوجتي و رفقية عمري
+            </h2>
+
+            <div class="bg-black/40 rounded-2xl p-6 sm:p-8 border border-rose-500/20 mb-8 shadow-inner">
+                <p class="text-rose-100/95 leading-relaxed text-base sm:text-lg font-medium text-center sm:text-right">
+                    كل عام وأنتِ النور الذي يضيء حياتي، وكل لحظة معكِ تعني لي العالم بأسره. أطال الله بعمركِ وجعل كل أيامنا فرح وسعادة، وجعلكِ قرة عيني دائماً وأبداً. أحبكِ بقدر ما تسع هذه الحياة وأكثر. ✨❤️
+                </p>
+            </div>
+
+            <div class="flex justify-between items-center">
+                <button onclick="goToPage(1)" class="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-rose-500/20 text-rose-200 font-semibold text-sm transition-all">
+                    ← السابق
+                </button>
+                <button onclick="goToPage(3)" class="px-6 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold text-sm shadow-lg shadow-rose-600/30 transition-all">
+                    التالي: ذكرياتنا الصور 📸 →
+                </button>
+            </div>
+        </div>
+
+
+        <!-- ================= PAGE 3: PHOTOS PAGE ================= -->
+        <div id="page-3" class="w-full glass-panel rounded-3xl p-6 sm:p-10 hidden page-transition relative">
+            <span class="absolute top-4 left-6 text-xs text-rose-400/60 font-medium">٢ من ٥</span>
+
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-center bg-gradient-to-r from-rose-300 via-pink-400 to-rose-200 bg-clip-text text-transparent mb-4">
+                لحظاتنا الجميلة 📸
+            </h2>
+            <p class="text-center text-xs sm:text-sm text-rose-300/70 mb-6">أجمل الصور والذكريات التي جمعتنا سوياً</p>
+
+            <!-- Photo Slots Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                <!-- Slot 1 -->
+                <div class="bg-black/40 rounded-2xl p-3 border border-rose-500/20 flex flex-col items-center group hover:border-rose-500/50 transition-all">
+                    <div class="w-full h-44 rounded-xl overflow-hidden bg-rose-950/30 flex items-center justify-center relative mb-2">
+                        <img src="https://placehold.co/400x300/200a12/f43f5e?text=أجمل+لحظة+❤️" alt="ذكرياتنا" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/200a12/f43f5e?text=صورة+رقم+١'">
+                    </div>
+                    <span class="text-xs text-rose-200/80 font-medium">أول لقاء وابتسامة ✨</span>
+                </div>
+
+                <!-- Slot 2 -->
+                <div class="bg-black/40 rounded-2xl p-3 border border-rose-500/20 flex flex-col items-center group hover:border-rose-500/50 transition-all">
+                    <div class="w-full h-44 rounded-xl overflow-hidden bg-rose-950/30 flex items-center justify-center relative mb-2">
+                        <img src="https://placehold.co/400x300/200a12/f43f5e?text=أحلى+ضحكة+🌸" alt="ذكرياتنا" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/200a12/f43f5e?text=صورة+رقم+٢'">
+                    </div>
+                    <span class="text-xs text-rose-200/80 font-medium">ضحكتك التي تئير قلبي 💖</span>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center">
+                <button onclick="goToPage(2)" class="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-rose-500/20 text-rose-200 font-semibold text-sm transition-all">
+                    ← السابق
+                </button>
+                <button onclick="goToPage(4)" class="px-6 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold text-sm shadow-lg shadow-rose-600/30 transition-all">
+                    التالي: بيتنا الجديد 🏡 →
+                </button>
+            </div>
+        </div>
+
+
+        <!-- ================= PAGE 4: OUR FUTURE HOME PAGE ================= -->
+        <div id="page-4" class="w-full glass-panel rounded-3xl p-6 sm:p-10 hidden page-transition relative">
+            <span class="absolute top-4 left-6 text-xs text-rose-400/60 font-medium">٣ من ٥</span>
+
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-center bg-gradient-to-r from-rose-300 via-pink-400 to-rose-200 bg-clip-text text-transparent mb-3">
+                بيتنا الي تم وصار حقنا 🏡✨
+            </h2>
+            <p class="text-center text-xs sm:text-sm text-rose-300/70 mb-6">مملكتنا الصغيرة التي بنيناها بالأحلام والحب</p>
+
+            <div class="space-y-4 mb-8">
+                <!-- Main Home Feature Image -->
+                <div class="w-full h-56 sm:h-64 rounded-2xl overflow-hidden bg-black/40 border border-rose-500/30 relative group shadow-lg">
+                    <img src="https://placehold.co/600x400/200a12/f43f5e?text=بيتنا+الجميل+🏡" alt="بيتنا" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/200a12/f43f5e?text=بيتنا+الجميل'">
+                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-center">
+                        <p class="text-sm font-bold text-rose-200">عشُنا الدافئ وبداية حكايتنا الأبدية 💕</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center">
+                <button onclick="goToPage(3)" class="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-rose-500/20 text-rose-200 font-semibold text-sm transition-all">
+                    ← السابق
+                </button>
+                <button onclick="goToPage(5)" class="px-6 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold text-sm shadow-lg shadow-rose-600/30 transition-all">
+                    التالي: رسالة ماما وبابا 💌 →
+                </button>
+            </div>
+        </div>
+
+
+        <!-- ================= PAGE 5: FAMILY MESSAGE PAGE ================= -->
+        <div id="page-5" class="w-full glass-panel rounded-3xl p-6 sm:p-10 hidden page-transition relative">
+            <span class="absolute top-4 left-6 text-xs text-rose-400/60 font-medium">٤ من ٥</span>
+
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-center bg-gradient-to-r from-rose-300 via-pink-400 to-rose-200 bg-clip-text text-transparent mb-6">
+                رسالة من ماما وبابا 👩‍❤️‍👨
+            </h2>
+
+            <div class="bg-black/40 rounded-2xl p-6 sm:p-8 border border-rose-500/20 mb-8 shadow-inner text-center relative">
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-rose-600 text-white text-xs px-4 py-1 rounded-full shadow-md font-bold">
+                    إلى أغلى عروسة في الكون
+                </div>
+                <p class="text-rose-100/95 leading-relaxed text-base sm:text-lg font-medium mt-2">
+                    "كل التبريكات وأجمل الأمنيات من ماما وبابا لأغلى عروسة في الكون. نبارك لكِ بيتك الجديد وحياتك الجديدة مع من اختاره قلبكِ. نتمنى لكما سعادة لا تنتهي ومحبة تدوم طوال العمر. الله يحفظكم ويحميكم ويرزقكم السعادة الدائمة يا نور عيوننا." ❤️🌹
+                </p>
+            </div>
+
+            <div class="flex justify-between items-center">
+                <button onclick="goToPage(4)" class="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-rose-500/20 text-rose-200 font-semibold text-sm transition-all">
+                    ← السابق
+                </button>
+                <button onclick="restartApp()" class="px-6 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold text-sm shadow-lg shadow-rose-600/30 transition-all">
+                    🔄 العودة للبداية
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Start floating background hearts on load
+        window.onload = function() {
+            startBackgroundHearts();
+        };
+
+        // Handle enter key press on password input
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        }
+
+        // Check password validation
+        function checkPassword() {
+            const inputVal = document.getElementById('password-input').value.trim().toLowerCase();
+            const errorMsg = document.getElementById('error-msg');
+
+            if (inputVal === 'love') {
+                errorMsg.style.opacity = '0';
+                
+                // Try to start background music upon interaction
+                const audio = document.getElementById('bg-music');
+                audio.play().then(() => {
+                    document.getElementById('music-widget').style.display = 'block';
+                }).catch(e => {
+                    console.log("Audio autoplay prevented or unavailable", e);
+                });
+
+                goToPage(2);
+            } else {
+                errorMsg.style.opacity = '1';
+                document.getElementById('password-input').classList.add('border-red-500', 'shake');
+                setTimeout(() => {
+                    document.getElementById('password-input').classList.remove('border-red-500', 'shake');
+                }, 500);
+            }
+        }
+
+        // Navigation between pages
+        function goToPage(pageNum) {
+            for (let i = 1; i <= 5; i++) {
+                const page = document.getElementById(`page-${i}`);
+                if (i === pageNum) {
+                    page.classList.remove('hidden');
+                    page.style.opacity = '0';
+                    setTimeout(() => {
+                        page.style.opacity = '1';
+                    }, 50);
+                } else {
+                    page.classList.add('hidden');
+                }
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function restartApp() {
+            document.getElementById('password-input').value = '';
+            goToPage(1);
+        }
+
+        // Music Toggle Widget
+        let isPlaying = true;
+        function toggleMusic() {
+            const audio = document.getElementById('bg-music');
+            const icon = document.getElementById('music-icon');
+            const text = document.getElementById('music-text');
+
+            if (isPlaying) {
+                audio.pause();
+                icon.textContent = '🔇';
+                text.textContent = 'الموسيقى متوقفة';
+                isPlaying = false;
+            } else {
+                audio.play();
+                icon.textContent = '🎵';
+                text.textContent = 'الموسيقى تعمل';
+                isPlaying = true;
+            }
+        }
+
+        // Generate floating hearts from bottom and top
+        function startBackgroundHearts() {
+            const upContainer = document.getElementById('hearts-up-container');
+            const downContainer = document.getElementById('hearts-down-container');
+            const heartEmojis = ['❤️', '💖', '🌹', '💕', '✨'];
+
+            // Upward hearts
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart-up';
+                heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = (Math.random() * 1.2 + 0.8) + 'rem';
+                
+                const duration = Math.random() * 3 + 6; // 6 to 9 seconds
+                heart.style.animationDuration = duration + 's';
+                
+                upContainer.appendChild(heart);
+                setTimeout(() => heart.remove(), duration * 1000);
+            }, 500);
+
+            // Downward hearts
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart-down';
+                heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.login || Math.floor(Math.random() * heartEmojis.length))];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = (Math.random() * 1.2 + 0.8) + 'rem';
+                
+                const duration = Math.random() * 3 + 6; // 6 to 9 seconds
+                heart.style.animationDuration = duration + 's';
+                
+                downContainer.appendChild(heart);
+                setTimeout(() => heart.remove(), duration * 1000);
+            }, 700);
+        }
+    </script>
+</body>
+</html>
